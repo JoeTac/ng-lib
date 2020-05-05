@@ -12,9 +12,6 @@ export class SortObjectPipe implements PipeTransform {
     let key = properties['key'];
     let asc = properties['asc'];
 
-    if ( !key ) return object;
-    if ( !asc ) asc = true;
-
     return object.sort((a,b) => {
       let aa = this.extract(a, key);
       let bb = this.extract(b, key);
