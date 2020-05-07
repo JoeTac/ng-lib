@@ -1,0 +1,17 @@
+.clickable {
+    cursor: pointer;
+}
+.caret {
+    float: right;
+}
+.fa-caret-down {
+    position: relative;
+    top: 8px;
+    left: 10px;
+}
+.caret-inactive {
+    color: lightgrey;
+}
+.caret-active {
+    color: black;
+}

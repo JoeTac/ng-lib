@@ -1,0 +1,30 @@
+<!-- DO NOT CHANGE ANY CODE BELOW -->
+<div class="input-group">
+    <div class="input-group-prepend">
+        <div class="input-group-text" id="btnGroupAddon"><i class="fa fa-search" aria-hidden="true"></i></div>
+    </div>
+    <input type="text" class="form-control" placeholder="{{placeholderText}}" [(ngModel)]="filterText">
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th *ngFor="let header of headers" [ngStyle]="setWidth(header)"> 
+                <div *ngIf="isString(header.key); else elseBlock" class="clickable" (click)="sort(header)">
+                    {{header.title}}
+                    <i class="fas fa-caret-up caret" [ngClass]="header.asc"></i>
+                    <i class="fas fa-caret-down caret" [ngClass]="header.desc"></i>
+                </div>
+                <ng-template #elseBlock>
+                    {{header.title}}
+                </ng-template>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data | objectFilter: { key: filterKey, text: filterText } | objectSort: { key: selectedKey, sort: selectedSort, subSort: selectedSubSort } ">
+            <td *ngFor="let col of headers">
+                {{displayCell(row, col)}}
+            </td>
+        </tr>
+    </tbody>
+</table>
