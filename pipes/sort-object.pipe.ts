@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'sortObject'
 })
 export class SortObjectPipe implements PipeTransform {
-  transform(object: any, properties:string): any {
+  transform(object: any, properties:any): any {
     let key = properties['key'];
     let asc = properties['asc'];
 
