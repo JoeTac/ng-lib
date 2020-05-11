@@ -19,7 +19,9 @@ export class DiceService {
     return new Observable<number>((observer:Observer<number>) => {
       let result = this.parse(diceSyntax);
       this.random.integers(1, result.dieType, result.dieCount).subscribe(data => {
-        observer.next(data[0] + result.modifier);
+        let total:number = 0;
+        data.forEach(r => total+=r);
+        observer.next(total + result.modifier);
       });
     });
   }
