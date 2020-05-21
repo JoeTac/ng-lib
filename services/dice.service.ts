@@ -22,6 +22,7 @@ export class DiceService {
         let total:number = 0;
         data.forEach(r => total+=r);
         observer.next(total + result.modifier);
+        observer.complete();
       });
     });
   }
