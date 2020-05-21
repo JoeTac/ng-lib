@@ -23,6 +23,7 @@ export class RandomService {
             }
           });
           observer.next(results);
+          observer.complete();
       });
     });
   }
@@ -31,6 +32,7 @@ export class RandomService {
     return new Observable<number>((observer:Observer<number>) => {
       this.integers(min, max, 1).subscribe(data => {
         observer.next(data[0]);
+        observer.complete();
       });
     });
   }
